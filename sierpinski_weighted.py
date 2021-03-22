@@ -7,12 +7,12 @@ def w1(input_image):
 
 def w2(input_image):
   input_image = np.array([[0.5, 0],[0, 0.5]]) @ input_image
-  input_image[1] += 0.5
+  input_image[1] += 1
   return input_image
   
 def w3(input_image):
   input_image = np.array([[0.5, 0],[0, 0.5]]) @ input_image
-  input_image[0] += 0.5
+  input_image[0] += 1
   return input_image
   
 def main(n=100000):
@@ -26,13 +26,13 @@ def main(n=100000):
     input_image = [1, 1]
     for i in range(n):
         which_transformation = np.random.randint(0, 19)
-        # the randomly selected transformation
+        # the weighted selected transformation
         if(which_transformation >= 0 and which_transformation < 9):
-          input_image = w1(input_image)
-        elif(which_transformation >= 9 and which_transformation < 18):
           input_image = w2(input_image)
-        elif(which_transformation >= 18):
+        elif(which_transformation >= 9 and which_transformation < 18):
           input_image = w3(input_image)
+        elif(which_transformation >= 18):
+          input_image = w1(input_image)
         #transform point to the canvas grid
         pix_coord = np.around((input_image[0:2]) * [pixels_width, pixels_height]).astype(int)
         # if the pixel is on the canvas

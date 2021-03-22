@@ -1,5 +1,6 @@
 import numpy as np
 import imageio
+import math
 
 def w1(input_image):
   input_image = np.array([[0.5, 0],[0, 0.5]]) @ input_image
@@ -19,9 +20,7 @@ def main(n=100000):
     pixels_width = 900
     pixels_height = 900
     # set my frame and set it to white
-    fixed_point = np.zeros((pixels_width, pixels_height))
-    for i in range(pixels_width):
-        fixed_point.fill(255)
+    fixed_point = np.full((pixels_width, pixels_height),255)
     #input image doesn't matter so just random values here
     input_image = [1, 1]
     for i in range(n):

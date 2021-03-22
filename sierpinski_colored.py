@@ -41,7 +41,7 @@ def main(n=100000):
         pix_coord = np.around((input_image[0:2]) * [pixels_width, pixels_height]).astype(int)
         # if the pixel is on the canvas
         if (pix_coord >= [0, 0]).all() and (pix_coord < [pixels_width, pixels_height]).all():
-            #set the point to black
+            #set the point to appropriate color
             fixed_point[pix_coord[0], pix_coord[1]] = color
     imageio.imwrite('sierpinski_colored.png', fixed_point)
     return
