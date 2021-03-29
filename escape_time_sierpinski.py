@@ -27,7 +27,11 @@ def main():
           x=Newx
           y=Newy
           if(x*x + y*y > 100000):
-            fixed_point[i][j]= np.array([0,0,k+10])
+            if(k > 15):
+              fixed_point[i][j]= np.array([2*k + 20,20,2*k + 20])
+            else:
+              fixed_point[i][j]= np.array([0,2*k + 20,2*k + 20])
+              
             break
 
     imageio.imwrite('escape_time_sierpinski.png', fixed_point)

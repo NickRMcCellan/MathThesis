@@ -33,7 +33,7 @@ def main():
             x=Newx;
             y=Newy;
             if(x*x+y*y>10000):
-              fixed_point[i][j] = np.array([0,0,k])
+              fixed_point[i][j] = np.array([2*k,0,2*k])
               break
 
     imageio.imwrite('escape_time_fern.png', fixed_point)
